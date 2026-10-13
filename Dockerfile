@@ -7,6 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+ENV PORT=8002
 EXPOSE 8002
 
-CMD ["uvicorn", "src.lab6.fastapi_notes:app", "--host", "0.0.0.0", "--port", "8002"]
+CMD ["sh", "-c", "uvicorn src.lab6.fastapi_notes:app --host 0.0.0.0 --port ${PORT:-8002}"]

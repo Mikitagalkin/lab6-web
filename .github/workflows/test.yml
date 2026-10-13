@@ -20,3 +20,15 @@ jobs:
 
       - name: Run tests
         run: pytest tests/ -v
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Render
+        run: |
+          echo "Деплой конфигурации на Render"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}" || true
