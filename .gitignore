@@ -1,5 +1,4 @@
-﻿Set-FileContent -Path ".gitignore" -Content @'
-# Python
+﻿# Python
 __pycache__/
 *.py[cod]
 *.so
@@ -32,4 +31,3 @@ instance/
 
 # Logs
 *.log
-'@
